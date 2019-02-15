@@ -33,6 +33,9 @@ function createWriteStream(filePath, options) {
     prepareRequestOptions(requestOptions, options);
     request(requestOptions)
         .then(responseHandlers.handleResponseCode)
+        .then(() => {
+            writeStream.emit("complete");
+        })
         .catch(err => {
             writeStream.emit("error", err);
         });
