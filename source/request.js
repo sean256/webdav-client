@@ -50,6 +50,9 @@ function prepareRequestOptions(requestOptions, methodOptions) {
     if (methodOptions.maxContentLength) {
         requestOptions.maxContentLength = methodOptions.maxContentLength;
     }
+    if (methodOptions.timeout) {
+        requestOptions.timeout = methodOptions.timeout;
+    }
 }
 
 /**
